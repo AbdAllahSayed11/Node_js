@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title Todo List
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+  body
+    .container.mt-5
+      h1.mb-4.text-center Todo List
+
+      if todos.length
+        table.table.table-striped
+          thead
+            tr
+              th Title
+              th Status
+              th Created At
+              th Updated At
+          tbody
+            each todo in todos
+              tr
+                td= todo.title
+                td.text-capitalize= todo.status
+                td= new Date(todo.createdAt).toLocaleString()
+                td= new Date(todo.updatedAt).toLocaleString()
+      else
+        .alert.alert-warning.text-center No todos found.
